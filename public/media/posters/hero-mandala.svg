@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Generated mandala-inspired museum atmosphere</title>
+  <desc id="desc">A decorative abstract mandala composition for the VIRAASAT hero.</desc>
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="45%" r="75%">
+      <stop offset="0%" stop-color="#46381f"/>
+      <stop offset="45%" stop-color="#1d1710"/>
+      <stop offset="100%" stop-color="#0f0d09"/>
+    </radialGradient>
+    <linearGradient id="gold" x1="0" x2="1">
+      <stop offset="0" stop-color="#8b6f2f"/>
+      <stop offset="0.5" stop-color="#f2ca50"/>
+      <stop offset="1" stop-color="#6f5622"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <g fill="none" stroke="url(#gold)" stroke-opacity=".5" transform="translate(800 450)">
+    <circle r="330" stroke-width="2"/>
+    <circle r="250" stroke-width="1"/>
+    <circle r="170" stroke-width="1"/>
+    <circle r="90" stroke-width="1"/>
+    <g stroke-width="1">
+      <path d="M0-360 42-120 0 0-42-120Z"/>
+      <path d="M0 360 42 120 0 0-42 120Z"/>
+      <path d="M-360 0-120 42 0 0-120-42Z"/>
+      <path d="M360 0 120 42 0 0 120-42Z"/>
+    </g>
+    <g stroke-width="1" opacity=".65">
+      <path d="M0-320c100 70 160 170 160 320S100 250 0 320c-100-70-160-170-160-320S-100-250 0-320Z"/>
+      <path d="M-226-226c120 20 226 120 226 226s-106 206-226 226c20-120 120-226 226-226s206 106 226 226c-120-20-226-120-226-226s106-206 226-226c-20 120-120 226-226 226S-206-106-226-226Z"/>
+    </g>
+  </g>
+  <rect width="1600" height="900" fill="#0f0d09" opacity=".24"/>
+</svg>

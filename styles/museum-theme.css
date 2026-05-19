@@ -1,0 +1,265 @@
+/* VIRAASAT - Premium Museum Design System */
+
+:root {
+  /* Heritage Color Palette */
+  --museum-black: #0a0a08;
+  --stone-charcoal: #1a1814;
+  --temple-shadow: #2d2a23;
+  --bronze-aged: #4a3f2a;
+  --sandstone-warm: #8b7355;
+  --temple-gold: #d4af37;
+  --ivory-cream: #faf6f0;
+  --saffron-subtle: #ff9933;
+  --indigo-rich: #2e4057;
+  
+  /* Glassmorphism Values */
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(212, 175, 55, 0.15);
+  --glass-blur: 20px;
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  
+  /* Typography Scale */
+  --font-display: "Playfair Display", "Georgia", serif;
+  --font-body: "Inter", "SF Pro Display", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: "JetBrains Mono", "SF Mono", monospace;
+  
+  /* Spacing System */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4rem;
+  --space-4xl: 6rem;
+  --space-5xl: 8rem;
+  
+  /* Motion Values */
+  --motion-slow: 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  --motion-medium: 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  --motion-fast: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  --motion-cinematic: 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  
+  /* Depth Layers */
+  --depth-far: rgba(10, 10, 8, 0.8);
+  --depth-mid: rgba(26, 24, 20, 0.6);
+  --depth-near: rgba(45, 42, 35, 0.4);
+  --depth-close: rgba(139, 115, 85, 0.2);
+}
+
+/* Base Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--museum-black);
+  color: var(--ivory-cream);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Typography Classes */
+.font-display {
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+}
+
+.font-body {
+  font-family: var(--font-body);
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+  font-weight: 400;
+}
+
+/* Glassmorphism Components */
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  box-shadow: var(--glass-shadow);
+}
+
+.glass-panel-dark {
+  background: rgba(10, 10, 8, 0.6);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+/* Cinematic Transitions */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all var(--motion-cinematic);
+}
+
+.fade-in-up.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.cinematic-blur {
+  backdrop-filter: blur(0px);
+  transition: backdrop-filter 2s ease-out;
+}
+
+.cinematic-blur.active {
+  backdrop-filter: blur(10px);
+}
+
+/* Depth Layers */
+.depth-layer-1 { z-index: 10; }
+.depth-layer-2 { z-index: 20; }
+.depth-layer-3 { z-index: 30; }
+.depth-layer-4 { z-index: 40; }
+.depth-layer-5 { z-index: 50; }
+
+/* Museum Lighting */
+.museum-light {
+  background: radial-gradient(
+    ellipse at center,
+    rgba(212, 175, 55, 0.1) 0%,
+    transparent 50%
+  );
+}
+
+.spotlight {
+  background: conic-gradient(
+    from 180deg at 50% 50%,
+    rgba(212, 175, 55, 0.2) 0deg,
+    transparent 90deg,
+    transparent 270deg,
+    rgba(212, 175, 55, 0.2) 360deg
+  );
+  animation: rotate 20s linear infinite;
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Premium Buttons */
+.btn-museum {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+  color: var(--ivory-cream);
+  padding: var(--space-md) var(--space-xl);
+  border-radius: 50px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  transition: all var(--motion-medium);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-museum::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.2), transparent);
+  transition: left var(--motion-medium);
+}
+
+.btn-museum:hover::before {
+  left: 100%;
+}
+
+.btn-museum:hover {
+  border-color: var(--temple-gold);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(212, 175, 55, 0.15);
+}
+
+/* Cinematic Sections */
+.cinematic-section {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.cinematic-hero {
+  height: 100vh;
+  position: relative;
+  background: 
+    radial-gradient(ellipse at 20% 30%, rgba(212, 175, 55, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 70%, rgba(46, 64, 87, 0.06) 0%, transparent 50%),
+    var(--museum-black);
+}
+
+/* Typography Hierarchy */
+.text-hero {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 300;
+  line-height: 0.9;
+  letter-spacing: -0.03em;
+  color: var(--ivory-cream);
+  text-align: center;
+}
+
+.text-subtitle {
+  font-family: var(--font-body);
+  font-size: clamp(1.2rem, 3vw, 1.5rem);
+  font-weight: 300;
+  color: rgba(250, 246, 240, 0.8);
+  text-align: center;
+  margin-top: var(--space-lg);
+}
+
+.text-caption {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  color: rgba(250, 246, 240, 0.6);
+  text-transform: uppercase;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .text-hero {
+    font-size: clamp(2rem, 10vw, 3rem);
+  }
+  
+  .cinematic-section {
+    min-height: 80vh;
+    padding: var(--space-lg);
+  }
+}
+
+/* Performance Optimizations */
+.gpu-layer {
+  transform: translateZ(0);
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+}
+
+.smooth-scroll {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
